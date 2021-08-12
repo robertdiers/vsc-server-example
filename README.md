@@ -31,6 +31,7 @@ In addition you will get your own "development container" and you can customize 
 ### known problems ###
 * Not all plugins get activated directly after installation, you might need to restart the container to get it working...
 * MD review frame might take some time to load
+* I was too lazy to translate startup/stop/remove scripts to Windows syntax, please use Git Bash or something similar
 
 
 ### usage ###
