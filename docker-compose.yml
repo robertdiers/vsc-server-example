@@ -1,0 +1,39 @@
+version: '3'
+services:
+    vsc-server:
+        image: code-server-example:1.0.0
+        container_name: code-server-example
+        hostname: code-server-example
+        networks:
+            vsc-server-example-net:
+        volumes:
+            - $HOME/.config:/home/coder/.config
+            - $PWD:/home/coder/project
+        environment:
+            - DOCKER_USER=$USER
+        user: "${EXAMPLE_UID}:${EXAMPLE_GID}"
+        expose:
+            - 8080
+            #add port of your application
+            - 50000
+        ports:
+            - 8080:8080
+            #add port of your application
+            - 50000:50000
+
+    #add Sonarqube as example
+    sonarqube:
+        image: sonarqube
+        container_name: sonarqube
+        hostname: sonarqube
+        networks:
+            vsc-server-example-net:
+        expose:
+            - 9000
+        ports:
+            - 8081:9000
+    
+    #add your required containers here
+
+networks:
+    vsc-server-example-net:
